@@ -64,7 +64,8 @@ INSTALLED_APPS = [
     'manager.admin1',
     
     'nfc.texts',
-    'nfc.tag_id'
+    'nfc.tag_id',
+    'nfc.students'
     
     
 ]
