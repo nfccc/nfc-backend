@@ -61,13 +61,14 @@ def get_students_by_class(request, student_class):
         
         # Prepare data to return specific fields
         # data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email')
-        data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email', 'student_class', 'date_registered')
+        # data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email', 'student_class', 'date_registered')
+        serializer = StudentSerializer(students, many=True)
         
         
         # Return response with total count and students data
         return Response({
             "total_students": total_students,
-            "students": list(data)
+             "students": serializer.data
         })
 
     except ValueError:
