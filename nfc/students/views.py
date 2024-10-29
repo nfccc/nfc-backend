@@ -38,11 +38,12 @@ def get_all_students(request):
         total_students = students.count()
         
         # Get student details
-        data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email', 'student_class', 'date_registered')
+        # data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email', 'student_class', 'date_registered')
+        serializer = StudentSerializer(students, many=True)
         
         return Response({
             "total_students": total_students,
-            "students": list(data)
+            "students": serializer.data
         })
     except Exception as e:
         print(f"Error in get_all_students: {e}")
