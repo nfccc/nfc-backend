@@ -31,15 +31,36 @@ def get_all_students(request):
 # GET request to retrieve students by class (full details and total count per class)
 @api_view(['GET'])
 def get_students_by_class(request, student_class):
-    students = Student.objects.filter(student_class=student_class)
-    total_students = students.count()
-    # Get full details: name, UID, parent contact, parent email, date registered
-    data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email', 'date_registered')
-    
-    return Response({
-        "total_students": total_students,
-        "students": list(data)
-    })
+    try:
+        # Ensure that `student_class` is correctly formatted as the type expected by the model
+        # Assuming `student_class` should be an integer, convert it
+        student_class = int(student_class)  # Convert to integer if needed; adjust based on model field type
+
+        # Filter students by `student_class`
+        students = Student.objects.filter(student_class=student_class)
+        total_students = students.count()
+
+        # Prepare data to return specific fields
+        data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email', 'date_registered')
+
+        # Log the response data for debugging
+        print(f"Class {student_class} - Total Students: {total_students}")
+        print("Student Data:", list(data))
+
+        # Return response with total count and students data
+        return Response({
+            "total_students": total_students,
+            "students": list(data)
+        })
+
+    except ValueError:
+        # If student_class is not a valid integer, return an error response
+        return Response({"error": "Invalid class value provided"}, status=400)
+
+    except Exception as e:
+        # Log and return a generic error response if something goes wrong
+        print(f"Error in get_students_by_class: {e}")
+        return Response({"error": "An error occurred while fetching students"}, status=500)
     
     
     
