@@ -31,6 +31,7 @@ urlpatterns = [
     path('track/', include('nfc.tag_id.urls')),
     path('students/', include('nfc.students.urls')),  # Connects students app URLs
     
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

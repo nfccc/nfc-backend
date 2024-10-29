@@ -129,7 +129,12 @@ def handle_nfc_scan(request):
         
         # Compose the email
         subject = f"NFC Scan Alert for {student.student_name}"
-        message = f"Hello,\n\nThis is to notify you that your child, {student.student_name}, has ."
+        message = (
+            f"Hello,\n\n"
+            f"This is to notify you that your child, {student.student_name}, "
+            f"was scanned at a monitored location. Please contact the school if you have questions.\n\n"
+            f"Best regards,\nYour School Administration"
+        )
         recipient_email = student.parent_email
 
         # Send the email
@@ -142,5 +147,6 @@ def handle_nfc_scan(request):
         )
 
         return Response({"message": "Notification sent successfully"}, status=status.HTTP_200_OK)
+    
     except Student.DoesNotExist:
         return Response({"error": "Student not found"}, status=status.HTTP_404_NOT_FOUND)

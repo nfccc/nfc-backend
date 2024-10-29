@@ -9,7 +9,7 @@ class Student(models.Model):
     parent_contact = models.CharField(max_length=15)
     parent_email = models.EmailField()
     student_class = models.IntegerField(choices=CLASS_CHOICES)  # Ensure this is IntegerField
-    date_registered = models.DateTimeField(default=timezone.now)  # Default for existing rows
-
+    date_registered = models.DateTimeField(auto_now_add=True)
+    
     def __str__(self):
         return self.student_name
