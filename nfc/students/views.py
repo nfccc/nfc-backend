@@ -33,15 +33,20 @@ def add_student(request):
 # GET request to retrieve all students (name, UID, parent contact, parent email, student class, and total count)
 @api_view(['GET'])
 def get_all_students(request):
-    students = Student.objects.all()
-    total_students = students.count()
-    # Get student details
-    data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email', 'student_class', 'date_registered')
-    
-    return Response({
-        "total_students": total_students,
-        "students": list(data)
-    })
+    try:
+        students = Student.objects.all()
+        total_students = students.count()
+        
+        # Get student details
+        data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email', 'student_class', 'date_registered')
+        
+        return Response({
+            "total_students": total_students,
+            "students": list(data)
+        })
+    except Exception as e:
+        print(f"Error in get_all_students: {e}")
+        return Response({"error": "An error occurred while fetching students."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 @api_view(['GET'])
 def get_students_by_class(request, student_class):

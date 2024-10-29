@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 CLASS_CHOICES = [(i, f"Class {i}") for i in range(1, 8)]  # 1 to 7 as choices
 
@@ -8,6 +9,7 @@ class Student(models.Model):
     parent_contact = models.CharField(max_length=15)
     parent_email = models.EmailField()
     student_class = models.IntegerField(choices=CLASS_CHOICES)  # Ensure this is IntegerField
+    date_registered = models.DateTimeField(default=timezone.now)  # Default for existing rows
 
     def __str__(self):
         return self.student_name
