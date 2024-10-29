@@ -15,13 +15,13 @@ def add_student(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# GET request to retrieve all students (name, date registered, and total count)
+# GET request to retrieve all students (name, UID, parent contact, parent email, student class, and total count)
 @api_view(['GET'])
 def get_all_students(request):
     students = Student.objects.all()
     total_students = students.count()
-    # Only get the name and date registered fields
-    data = students.values('student_name', 'date_registered')
+    # Get student details
+    data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email', 'student_class', 'date_registered')
     
     return Response({
         "total_students": total_students,
@@ -40,8 +40,6 @@ def get_students_by_class(request, student_class):
         "total_students": total_students,
         "students": list(data)
     })
-    
-    
     
     
     
