@@ -6,13 +6,28 @@ from .serializers import StudentSerializer
 from django.core.mail import send_mail
 from django.conf import settings
 
-# POST request to add a new student
 @api_view(['POST'])
 def add_student(request):
-    serializer = StudentSerializer(data=request.data)
+    data = request.data.copy()  # Make a mutable copy of the request data
+    
+    # Check if `student_class` is provided as a string and convert to integer
+    if 'student_class' in data and isinstance(data['student_class'], str):
+        try:
+            # Extract the numeric part from "Class X" if provided in that format
+            data['student_class'] = int(data['student_class'].split()[-1])
+        except (ValueError, IndexError):
+            # Return an error response if conversion fails
+            return Response(
+                {"student_class": "Invalid format. Use a numeric value for class."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+    
+    # Validate and save the data using the serializer
+    serializer = StudentSerializer(data=data)
     if serializer.is_valid():
         serializer.save()  # date_registered will be set automatically
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # GET request to retrieve all students (name, UID, parent contact, parent email, student class, and total count)
