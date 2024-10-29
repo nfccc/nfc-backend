@@ -1,8 +1,8 @@
 # aifans-django
 # aifans-django
 # aifans-django
- murima@gmail.com
-@Ilovekennedy
+nfc@gmail.com
+@Peponischool
 
 zdvt kmqs ptwi juhm
 @Peponi/9000
