@@ -59,7 +59,9 @@ def get_students_by_class(request, student_class):
         total_students = students.count()
         
         # Prepare data to return specific fields
-        data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email')
+        # data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email')
+        data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email', 'student_class', 'date_registered')
+        
         
         # Return response with total count and students data
         return Response({
