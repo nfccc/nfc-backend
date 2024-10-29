@@ -31,20 +31,24 @@ def get_all_students(request):
 @api_view(['GET'])
 def get_students_by_class(request, student_class):
     try:
-        # Convert student_class to an integer, as we're using numbers
+        # Convert `student_class` to an integer to ensure it matches the model field type
         student_class = int(student_class)
         
+        # Filter students by `student_class`
         students = Student.objects.filter(student_class=student_class)
         total_students = students.count()
         
-        data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email', 'date_registered')
+        # Prepare data to return specific fields
+        data = students.values('student_name', 'uid_number', 'parent_contact', 'parent_email')
         
+        # Return response with total count and students data
         return Response({
             "total_students": total_students,
             "students": list(data)
         })
 
     except ValueError:
+        # Return an error if the class value isn't valid
         return Response({"error": "Invalid class value provided"}, status=400)
     except Exception as e:
         print(f"Error in get_students_by_class: {e}")
