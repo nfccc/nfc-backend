@@ -134,8 +134,8 @@ def handle_nfc_scan(request):
         # Log attendance
         BusAttendance.objects.create(
             student=student,
-            bus=bus,
-            timestamp=datetime.now()  # Ensure timestamp is set to current date and time
+            bus=bus
+            # timestamp=datetime.now()  # Ensure timestamp is set to current date and time
         )
         
         return Response({"message": "Attendance logged successfully"}, status=status.HTTP_200_OK)
