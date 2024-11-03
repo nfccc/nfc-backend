@@ -30,6 +30,7 @@ urlpatterns = [
     path('texts/', include('nfc.texts.urls')),
     path('track/', include('nfc.tag_id.urls')),
     path('students/', include('nfc.students.urls')),  # Connects students app URLs
+    path('bus/', include('nfc.bus.urls')),
     
     
 ]

@@ -2,6 +2,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Student
+from nfc.bus.models import Bus  # Import Bus from its actual app location
 from .serializers import StudentSerializer
 from django.core.mail import send_mail
 from django.conf import settings
@@ -117,27 +118,32 @@ def delete_student(request, student_id):
 
 @api_view(['POST'])
 def handle_nfc_scan(request):
-    # Retrieve UID from the request data
     uid_number = request.data.get('uid_number')
-    
+    bus_id = request.data.get('bus_id')
+
     if not uid_number:
         return Response({"error": "UID number is required"}, status=status.HTTP_400_BAD_REQUEST)
+    if not bus_id:
+        return Response({"error": "Bus ID is required"}, status=status.HTTP_400_BAD_REQUEST)
     
     try:
-        # Retrieve the student by UID
+        # Retrieve bus by bus_id
+        bus = Bus.objects.get(bus_id=bus_id)
+        
+        # Retrieve student by uid_number
         student = Student.objects.get(uid_number=uid_number)
         
-        # Compose the email
+        # Compose email including bus information
         subject = f"NFC Scan Alert for {student.student_name}"
         message = (
             f"Hello,\n\n"
             f"This is to notify you that your child, {student.student_name}, "
-            f"was scanned at a monitored location. Please contact the school if you have questions.\n\n"
+            f"was scanned on {bus.name} at a monitored location. "
+            f"Please contact the school if you have questions.\n\n"
             f"Best regards,\nYour School Administration"
         )
         recipient_email = student.parent_email
 
-        # Send the email
         send_mail(
             subject,
             message,
@@ -148,5 +154,7 @@ def handle_nfc_scan(request):
 
         return Response({"message": "Notification sent successfully"}, status=status.HTTP_200_OK)
     
+    except Bus.DoesNotExist:
+        return Response({"error": "Bus not found"}, status=status.HTTP_404_NOT_FOUND)
     except Student.DoesNotExist:
         return Response({"error": "Student not found"}, status=status.HTTP_404_NOT_FOUND)

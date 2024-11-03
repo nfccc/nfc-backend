@@ -65,7 +65,8 @@ INSTALLED_APPS = [
     
     'nfc.texts',
     'nfc.tag_id',
-    'nfc.students'
+    'nfc.students',
+    'nfc.bus'
     
     
 ]
