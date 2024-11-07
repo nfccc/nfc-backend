@@ -137,9 +137,23 @@ def handle_nfc_scan(request):
             bus=bus
             # timestamp=datetime.now()  # Ensure timestamp is set to current date and time
         )
-       
-        
-        return Response({"message": "Attendance logged successfully"}, status=status.HTTP_200_OK)
+
+        # Send email notification to parent
+        subject = f"Bus Check-in Notification for {student.student_name}"
+        message = (
+            f"Hello,\n\n"
+            f"We want to let you know that {student.student_name} has safely boarded the {bus.name} bus.\n\n"
+            f"Thank you."
+        )
+        send_mail(
+            subject,
+            message,
+            settings.DEFAULT_FROM_EMAIL,
+            [student.parent_email],
+            fail_silently=False
+        )
+
+        return Response({"message": "Attendance logged and notification sent successfully"}, status=status.HTTP_200_OK)
     
     except Bus.DoesNotExist:
         return Response({"error": "Bus not found"}, status=status.HTTP_404_NOT_FOUND)
