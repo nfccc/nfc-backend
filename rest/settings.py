@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-67()*kg*%sn(s%rk!&=$pry4bixxjg1dm8r)rcj-ikp-h$3f@h
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['*' , 'https://nfc-uiii--lime.vercel.app' ,'https://nfc-3fdg.onrender.com', 'localhost', 'localhost:3000' , 'http://localhost:3000' , '.vercel.app' , 'aifans-django.onrender.com' , 'marphi.onrender.com', 'https://vpn-drab.vercel.app' , 'vpn-drab.vercel.app', '"https://vpn-drab.vercel.app",'  , 'https://murphy-backends.onrender.com',   'murphy-backends.onrender.com', ]
+ALLOWED_HOSTS = ['*' , 'nfc-3fdg.onrender.com','https://nfc-uiii--lime.vercel.app' ,'https://nfc-3fdg.onrender.com', 'localhost', 'localhost:3000' , 'http://localhost:3000' , '.vercel.app' , 'aifans-django.onrender.com' , 'marphi.onrender.com', 'https://vpn-drab.vercel.app' , 'vpn-drab.vercel.app', '"https://vpn-drab.vercel.app",'  , 'https://murphy-backends.onrender.com',   'murphy-backends.onrender.com', ]
 
 
 # Application definition
@@ -123,13 +123,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'rest.wsgi.application'
 
 
-# websocket 
+
 ASGI_APPLICATION = 'rest.asgi.application'
+
+# Configure channel layers
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
     },
 }
+
 
 
 
