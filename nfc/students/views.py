@@ -137,6 +137,7 @@ def handle_nfc_scan(request):
             bus=bus
             # timestamp=datetime.now()  # Ensure timestamp is set to current date and time
         )
+       
         
         return Response({"message": "Attendance logged successfully"}, status=status.HTTP_200_OK)
     
