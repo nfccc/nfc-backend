@@ -7,6 +7,8 @@ from .serializers import StudentSerializer
 from django.core.mail import send_mail
 from django.conf import settings
 from datetime import datetime
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 @api_view(['POST'])
 def add_student(request):
@@ -117,6 +119,8 @@ def delete_student(request, student_id):
 
 
 
+
+
 @api_view(['POST'])
 def handle_nfc_scan(request):
     uid_number = request.data.get('uid_number')
@@ -132,10 +136,9 @@ def handle_nfc_scan(request):
         student = Student.objects.get(uid_number=uid_number)
         
         # Log attendance
-        BusAttendance.objects.create(
+        attendance_record = BusAttendance.objects.create(
             student=student,
             bus=bus
-            # timestamp=datetime.now()  # Ensure timestamp is set to current date and time
         )
 
         # Send email notification to parent
@@ -151,6 +154,21 @@ def handle_nfc_scan(request):
             settings.DEFAULT_FROM_EMAIL,
             [student.parent_email],
             fail_silently=False
+        )
+
+        # Trigger WebSocket update
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            f'bus_attendance_{bus_id}',
+            {
+                'type': 'attendance_update',
+                'message': {
+                    "student_name": student.student_name,
+                    "parent_email": student.parent_email,
+                    "timestamp": attendance_record.timestamp.strftime('%Y-%m-%d %H:%M'),
+                    "status": attendance_record.status,
+                }
+            }
         )
 
         return Response({"message": "Attendance logged and notification sent successfully"}, status=status.HTTP_200_OK)

@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
 
-  
+    'channels',
+
 
 
     'manager.admin1',
@@ -120,6 +121,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'rest.wsgi.application'
+
+
+# websocket 
+ASGI_APPLICATION = 'rest.asgi.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
 
 
 
