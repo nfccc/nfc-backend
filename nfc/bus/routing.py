@@ -1,7 +1,7 @@
 # nfc/bus/routing.py
-from django.urls import path
+from django.urls import re_path
 from . import consumers
 
 websocket_urlpatterns = [
-    path('ws/bus-attendance/<str:bus_id>/', consumers.BusAttendanceConsumer.as_asgi()),
+    re_path(r'^ws/bus-attendance/(?P<bus_id>\w+)/$', consumers.BusAttendanceConsumer.as_asgi()),
 ]
