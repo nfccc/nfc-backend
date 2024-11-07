@@ -1,6 +1,7 @@
-# nfc/bus/consumers.py
-import json
+# In `nfc/bus/consumers.py`
+
 from channels.generic.websocket import AsyncWebsocketConsumer
+import json
 
 class BusAttendanceConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -12,7 +13,6 @@ class BusAttendanceConsumer(AsyncWebsocketConsumer):
             self.room_group_name,
             self.channel_name
         )
-        
         await self.accept()
 
     async def disconnect(self, close_code):
@@ -22,9 +22,10 @@ class BusAttendanceConsumer(AsyncWebsocketConsumer):
             self.channel_name
         )
 
-    # Receive message from room group
-    async def attendance_update(self, event):
-        message = event['message']
+    async def receive(self, text_data):
+        # Handle incoming messages if needed
+        pass
 
-        # Send message to WebSocket
-        await self.send(text_data=json.dumps(message))
+    async def attendance_update(self, event):
+        # Send attendance update to WebSocket client
+        await self.send(text_data=json.dumps(event['message']))
