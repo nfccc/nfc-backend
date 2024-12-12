@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-67()*kg*%sn(s%rk!&=$pry4bixxjg1dm8r)rcj-ikp-h$3f@h
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['*' , 'nfc-3fdg.onrender.com','https://nfc-uiii--lime.vercel.app' ,'https://nfc-3fdg.onrender.com', 'localhost', 'localhost:3000' , 'http://localhost:3000' , '.vercel.app' , 'aifans-django.onrender.com' , 'marphi.onrender.com', 'https://vpn-drab.vercel.app' , 'vpn-drab.vercel.app', '"https://vpn-drab.vercel.app",'  , 'https://murphy-backends.onrender.com',   'murphy-backends.onrender.com', ]
+ALLOWED_HOSTS = ['*' , 'wss://nfc-3fdg.onrender.com','nfc-3fdg.onrender.com','https://nfc-uiii--lime.vercel.app' ,'https://nfc-3fdg.onrender.com', 'localhost', 'localhost:3000' , 'http://localhost:3000' , '.vercel.app' , 'aifans-django.onrender.com' , 'marphi.onrender.com', 'https://vpn-drab.vercel.app' , 'vpn-drab.vercel.app', '"https://vpn-drab.vercel.app",'  , 'https://murphy-backends.onrender.com',   'murphy-backends.onrender.com', ]
 
 
 # Application definition
@@ -302,7 +302,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'nfc900792@gmail.com'  # Replace with your Gmail address
-EMAIL_HOST_PASSWORD = 'zdvt kmqs ptwi juhm'  # Replace with a secure app password
+EMAIL_HOST_PASSWORD = 'gjmc ayij vlyf pcld'  # Replace with a secure app password
 DEFAULT_FROM_EMAIL = 'nfc900792@gmail.com'
 # zdvt kmqs ptwi juhm
 CSRF_COOKIE_DOMAIN = ".onrender.com"
