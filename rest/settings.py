@@ -305,3 +305,10 @@ EMAIL_HOST_USER = 'nfc900792@gmail.com'  # Replace with your Gmail address
 EMAIL_HOST_PASSWORD = 'zdvt kmqs ptwi juhm'  # Replace with a secure app password
 DEFAULT_FROM_EMAIL = 'nfc900792@gmail.com'
 # zdvt kmqs ptwi juhm
+CSRF_COOKIE_DOMAIN = ".onrender.com"
+CSRF_COOKIE_SECURE = True  # Make sure this is set for HTTPS sites
+CSRF_COOKIE_SAMESITE = 'Lax'  # Or 'Strict' based on your requirements
+CSRF_TRUSTED_ORIGINS = [
+    'https://nfc-3fdg.onrender.com',
+]
+

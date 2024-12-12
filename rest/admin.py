@@ -7,5 +7,5 @@ from nfc.bus.models import Bus  # Replace with the actual model
 
 # admin.site.register(TextModel)
 # admin.site.register(TagIDModel)
-admin.site.register(Student)
-admin.site.register(Bus)
+# admin.site.register(Student)
+# admin.site.register(Bus)
