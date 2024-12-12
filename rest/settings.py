@@ -156,9 +156,9 @@ else:
     # Use PostgreSQL for production
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nfc_dbs',  # Database name
-        'USER': 'nfc_dbs_user',  # Database user
-        'PASSWORD': 'W6nk028AmMYJc7TcolNWKMdKHviiI1jy',  # Database password
+        'NAME': 'nfc_db_f1og',  # Database name
+        'USER': 'nfc_db_f1og_user',  # Database user
+        'PASSWORD': 'bGEDSeuly4GYV1hY1Qk1nlsXKpyjMWyR',  # Database password
         'HOST': 'dpg-csdq3ojqf0us73980lig-a.oregon-postgres.render.com',  # Database host
         'PORT': '5432',  # Database port
     }
