@@ -1,3 +1,7 @@
+.\venv\Scripts\Activate.ps1
+
+
+
 # aifans-django
 # aifans-django
 # aifans-django
