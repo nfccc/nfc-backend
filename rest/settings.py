@@ -159,8 +159,11 @@ else:
         'NAME': 'nfc_db_f1og',  # Database name
         'USER': 'nfc_db_f1og_user',  # Database user
         'PASSWORD': 'bGEDSeuly4GYV1hY1Qk1nlsXKpyjMWyR',  # Database password
-        'HOST': 'dpg-csdq3ojqf0us73980lig-a.oregon-postgres.render.com',  # Database host
+        'HOST': 'dpg-ctdic23qf0us73braoug-a.oregon-postgres.render.com',  # Database host
         'PORT': '5432',  # Database port
+        'OPTIONS': {
+            'sslmode': 'require',  # Ensure SSL is enabled
+        },
     }
 
 
