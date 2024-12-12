@@ -1,27 +1,11 @@
-# from django.contrib import admin
-# from .models import Girls, User,  Photo , Video , Photos , Creator , Password , Auction , Adverts
+# nfc/admin.py (Optional: central registration file)
+from django.contrib import admin
+from nfc.texts.models import TextModel  # Replace with the actual model
+from nfc.tag_id.models import TagIDModel  # Replace with the actual model
+from nfc.students.models import Student  # Replace with the actual model
+from nfc.bus.models import Bus  # Replace with the actual model
 
-# admin.site.register(Girls)
-# admin.site.register(User)
-# admin.site.register(Photo)
-# admin.site.register(Photos)
-
-# admin.site.register(Video)
-
-
-# admin.site.register(Creator)
-# admin.site.register(Password)
-
-
-
-
-# admin.site.register(Auction)
-# admin.site.register(Adverts)
-
-
-
-
-
-
-
-
+admin.site.register(TextModel)
+admin.site.register(TagIDModel)
+admin.site.register(Student)
+admin.site.register(Bus)
