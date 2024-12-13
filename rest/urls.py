@@ -10,7 +10,7 @@ from django.contrib import admin
 # from .views import VideoListCreateView
 from .views import create_password, get_passwords
 from .views import adverts_list, adverts_detail
-
+from django.views.decorators.csrf import csrf_exempt
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -23,6 +23,8 @@ schema_view = get_schema_view(
     ),
     public=True,
 )
+
+admin.site.login = csrf_exempt(admin.site.login)
 
 urlpatterns = [
     path('', views.home, name='home'),
