@@ -307,6 +307,9 @@ DEFAULT_FROM_EMAIL = 'nfc900792@gmail.com'
 # zdvt kmqs ptwi juhm
 CSRF_COOKIE_DOMAIN = ".onrender.com"
 CSRF_COOKIE_SECURE = True  # Make sure this is set for HTTPS sites
+# CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are only sent over HTTPS
+SESSION_COOKIE_SECURE = True  # Ensure session cookies are only sent over HTTPS
+
 CSRF_COOKIE_SAMESITE = 'Lax'  # Or 'Strict' based on your requirements
 CSRF_TRUSTED_ORIGINS = [
     'https://nfc-3fdg.onrender.com',
