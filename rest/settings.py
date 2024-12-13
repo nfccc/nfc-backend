@@ -86,6 +86,10 @@ SOCIALACCOUNT_PROVIDERS =  {
     
 }
 
+
+X_FRAME_OPTIONS = 'ALLOWALL'
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
