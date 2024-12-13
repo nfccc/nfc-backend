@@ -146,7 +146,7 @@ def handle_nfc_scan(request):
         message = (
             f"Hello,\n\n"
             f"We want to let you know that {student.student_name} has safely boarded the {bus.name} .\n\n"
-            f"Thank you."
+            f"Thanks you."
         )
         send_mail(
             subject,
