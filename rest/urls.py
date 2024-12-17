@@ -10,7 +10,7 @@ from django.contrib import admin
 # from .views import VideoListCreateView
 from .views import create_password, get_passwords
 from .views import adverts_list, adverts_detail
-from django.views.decorators.csrf import csrf_exempt
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -26,7 +26,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('admin/', csrf_exempt(admin.site.urls)), 
+    path('admin/', admin.site.urls),
     path('texts/', include('nfc.texts.urls')),
     path('track/', include('nfc.tag_id.urls')),
     path('students/', include('nfc.students.urls')),  # Connects students app URLs
