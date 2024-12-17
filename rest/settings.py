@@ -87,14 +87,14 @@ SOCIALACCOUNT_PROVIDERS =  {
 }
 
 
-X_FRAME_OPTIONS = 'ALLOWALL'
+# X_FRAME_OPTIONS = 'ALLOWALL'
 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -309,13 +309,13 @@ EMAIL_HOST_USER = 'nfc900792@gmail.com'  # Replace with your Gmail address
 EMAIL_HOST_PASSWORD = 'gjmc ayij vlyf pcld'  # Replace with a secure app password
 DEFAULT_FROM_EMAIL = 'nfc900792@gmail.com'
 # zdvt kmqs ptwi juhm
-CSRF_COOKIE_DOMAIN = ".onrender.com"
-CSRF_COOKIE_SECURE = True  # Make sure this is set for HTTPS sites
-# CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are only sent over HTTPS
-SESSION_COOKIE_SECURE = True  # Ensure session cookies are only sent over HTTPS
+# CSRF_COOKIE_DOMAIN = ".onrender.com"
+# CSRF_COOKIE_SECURE = True  # Make sure this is set for HTTPS sites
+# # CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are only sent over HTTPS
+# SESSION_COOKIE_SECURE = True  # Ensure session cookies are only sent over HTTPS
 
-CSRF_COOKIE_SAMESITE = 'Lax'  # Or 'Strict' based on your requirements
-CSRF_TRUSTED_ORIGINS = [
-    'https://nfc-3fdg.onrender.com',
-]
+# CSRF_COOKIE_SAMESITE = 'Lax'  # Or 'Strict' based on your requirements
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://nfc-3fdg.onrender.com',
+# ]
 
