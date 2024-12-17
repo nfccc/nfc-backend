@@ -31,8 +31,8 @@ SECRET_KEY = 'django-insecure-67()*kg*%sn(s%rk!&=$pry4bixxjg1dm8r)rcj-ikp-h$3f@h
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['*' , 'nfc-3fdg.onrender.com','wss://nfc-3fdg.onrender.com','nfc-3fdg.onrender.com','https://nfc-uiii--lime.vercel.app' ,'https://nfc-3fdg.onrender.com', 'localhost', 'localhost:3000' , 'http://localhost:3000' , '.vercel.app' , 'aifans-django.onrender.com' , 'marphi.onrender.com', 'https://vpn-drab.vercel.app' , 'vpn-drab.vercel.app', '"https://vpn-drab.vercel.app",'  , 'https://murphy-backends.onrender.com',   'murphy-backends.onrender.com', ]
-CSRF_TRUSTED_ORIGINS = ['https://nfc-3fdg.onrender.com']
+ALLOWED_HOSTS = ['*' , 'nfc-3fdg.onrender.com','https://nfc-uiii--lime.vercel.app' ,'https://nfc-3fdg.onrender.com', 'localhost', 'localhost:3000' , 'http://localhost:3000' , '.vercel.app' , 'aifans-django.onrender.com' , 'marphi.onrender.com', 'https://vpn-drab.vercel.app' , 'vpn-drab.vercel.app', '"https://vpn-drab.vercel.app",'  , 'https://murphy-backends.onrender.com',   'murphy-backends.onrender.com', ]
+
 
 # Application definition
 
@@ -86,10 +86,6 @@ SOCIALACCOUNT_PROVIDERS =  {
     
 }
 
-
-# X_FRAME_OPTIONS = 'ALLOWALL'
-
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -111,7 +107,7 @@ ROOT_URLCONF = 'rest.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Add your custom templates directory
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -163,11 +159,8 @@ else:
         'NAME': 'nfc_db_f1og',  # Database name
         'USER': 'nfc_db_f1og_user',  # Database user
         'PASSWORD': 'bGEDSeuly4GYV1hY1Qk1nlsXKpyjMWyR',  # Database password
-        'HOST': 'dpg-ctdic23qf0us73braoug-a.oregon-postgres.render.com',  # Database host
+        'HOST': 'dpg-csdq3ojqf0us73980lig-a.oregon-postgres.render.com',  # Database host
         'PORT': '5432',  # Database port
-        'OPTIONS': {
-            'sslmode': 'require',  # Ensure SSL is enabled
-        },
     }
 
 
@@ -306,16 +299,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'nfc900792@gmail.com'  # Replace with your Gmail address
-EMAIL_HOST_PASSWORD = 'gjmc ayij vlyf pcld'  # Replace with a secure app password
+EMAIL_HOST_PASSWORD = 'zdvt kmqs ptwi juhm'  # Replace with a secure app password
 DEFAULT_FROM_EMAIL = 'nfc900792@gmail.com'
 # zdvt kmqs ptwi juhm
-# CSRF_COOKIE_DOMAIN = ".onrender.com"
-# CSRF_COOKIE_SECURE = True  # Make sure this is set for HTTPS sites
-# # CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are only sent over HTTPS
-# SESSION_COOKIE_SECURE = True  # Ensure session cookies are only sent over HTTPS
-
-# CSRF_COOKIE_SAMESITE = 'Lax'  # Or 'Strict' based on your requirements
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://nfc-3fdg.onrender.com',
-# ]
-
