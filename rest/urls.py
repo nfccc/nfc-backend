@@ -10,9 +10,7 @@ from django.contrib import admin
 # from .views import VideoListCreateView
 from .views import create_password, get_passwords
 from .views import adverts_list, adverts_detail
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
-from django.contrib.admin.sites import AdminSite
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -25,17 +23,6 @@ schema_view = get_schema_view(
     ),
     public=True,
 )
-
-admin.site.login = csrf_exempt(admin.site.login)
-
-
-class ExemptAdminSite(AdminSite):
-    @method_decorator(csrf_exempt)
-    def login(self, *args, **kwargs):
-        return super().login(*args, **kwargs)
-
-# Replace the default admin site with the exempt one
-admin.site = ExemptAdminSite()
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -50,6 +37,3 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-
-
