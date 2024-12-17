@@ -307,8 +307,8 @@ DEFAULT_FROM_EMAIL = 'nfc900792@gmail.com'
 
 
 
-CSRF_TRUSTED_ORIGINS = ['https://nfc-3fdg.onrender.com']
-ALLOWED_HOSTS = ['nfc-3fdg.onrender.com']
-CSRF_COOKIE_SECURE = True  # Ensures CSRF cookie works over HTTPS
-SESSION_COOKIE_SECURE = True  # Same for session cookies
-CSRF_COOKIE_SAMESITE = 'Lax'  # Prevents cross-origin CSRF issues
+# CSRF_TRUSTED_ORIGINS = ['https://nfc-3fdg.onrender.com']
+# ALLOWED_HOSTS = ['nfc-3fdg.onrender.com']
+# CSRF_COOKIE_SECURE = True  # Ensures CSRF cookie works over HTTPS
+# SESSION_COOKIE_SECURE = True  # Same for session cookies
+# CSRF_COOKIE_SAMESITE = 'Lax'  # Prevents cross-origin CSRF issues
