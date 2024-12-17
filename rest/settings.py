@@ -111,7 +111,7 @@ ROOT_URLCONF = 'rest.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # Add your custom templates directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
