@@ -32,7 +32,7 @@ DEBUG = False
 
 
 ALLOWED_HOSTS = ['*' , 'wss://nfc-3fdg.onrender.com','nfc-3fdg.onrender.com','https://nfc-uiii--lime.vercel.app' ,'https://nfc-3fdg.onrender.com', 'localhost', 'localhost:3000' , 'http://localhost:3000' , '.vercel.app' , 'aifans-django.onrender.com' , 'marphi.onrender.com', 'https://vpn-drab.vercel.app' , 'vpn-drab.vercel.app', '"https://vpn-drab.vercel.app",'  , 'https://murphy-backends.onrender.com',   'murphy-backends.onrender.com', ]
-
+CSRF_TRUSTED_ORIGINS = ['https://nfc-3fdg.onrender.com']
 
 # Application definition
 
