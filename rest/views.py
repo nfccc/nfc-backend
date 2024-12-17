@@ -16,8 +16,7 @@ from .serializers import UserSerializer , PhotoSerializer, VideoSerializer , Cre
 from django.shortcuts import get_object_or_404
 import json
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+
 
 def home(request):
     return render(request, "home.html")
@@ -29,21 +28,6 @@ def home(request):
 def logout_view(request):
     logout(request)
     return redirect("/")
-
-def custom_login(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            # Authenticate the user and log them in
-            user = form.get_user()
-            login(request, user)
-            return redirect('home')  # Redirect to home or dashboard after login
-        else:
-            # Form is not valid
-            return render(request, 'login.html', {'form': form, 'error': 'Invalid login credentials'})
-    else:
-        form = AuthenticationForm()
-        return render(request, 'login.html', {'form': form})
     
 
 @api_view(['GET', 'POST'])

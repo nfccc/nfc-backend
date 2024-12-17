@@ -9,7 +9,7 @@ from .views import UserListCreateView, UserDetailView
 from django.contrib import admin
 # from .views import VideoListCreateView
 from .views import create_password, get_passwords
-from .views import adverts_list, adverts_detail , custom_login
+from .views import adverts_list, adverts_detail
 
 
 schema_view = get_schema_view(
@@ -26,7 +26,6 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('login/', custom_login, name='login'),
     path('admin/', admin.site.urls),
     path('texts/', include('nfc.texts.urls')),
     path('track/', include('nfc.tag_id.urls')),
@@ -38,3 +37,5 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+

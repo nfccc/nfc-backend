@@ -270,7 +270,7 @@ AUTHENTICATION_BACKENDS = [
   
   
   
-LOGIN_REDIRECT_URL = "/admin"
+LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
 
@@ -302,8 +302,6 @@ EMAIL_HOST_USER = 'nfc900792@gmail.com'  # Replace with your Gmail address
 EMAIL_HOST_PASSWORD = 'zdvt kmqs ptwi juhm'  # Replace with a secure app password
 DEFAULT_FROM_EMAIL = 'nfc900792@gmail.com'
 # zdvt kmqs ptwi juhm
-
-
 
 
 
