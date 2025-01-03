@@ -1,0 +1,44 @@
+/* Example custom styling for Swagger UI */
+
+/* Change font family */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Change background color */
+.swagger-ui {
+    background-color: #f0f0f0;
+}
+
+/* Modify header styles */
+.swagger-ui .topbar {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Modify sidebar styles */
+.swagger-ui .sidebar {
+    background-color: #fff;
+    border-right: 1px solid #ccc;
+}
+
+/* Modify main content styles */
+.swagger-ui .opblock-summary {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Add padding to main content */
+.swagger-ui .opblock-summary {
+    padding: 10px;
+}
+
+/* Modify response section styles */
+.swagger-ui .responses-inner {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}

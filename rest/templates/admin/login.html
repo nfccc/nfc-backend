@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+<div class="custom-login">
+    <h1>Welcome to My Custom Admin!</h1>
+    <form method="post" action="{{ app_path }}">
+        {% csrf_token %}
+        <label for="id_username">Username:</label>
+        <input type="text" name="username" id="id_username" autofocus>
+        
+        <label for="id_password">Password:</label>
+        <input type="password" name="password" id="id_password">
+        
+        <button type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}
