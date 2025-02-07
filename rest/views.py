@@ -93,7 +93,7 @@ def girls_photos(request, pk):
     serializer = PhotoSerializer(photos, many=True)
     return Response(serializer.data)
 
-
+#
 
 
 @csrf_exempt
