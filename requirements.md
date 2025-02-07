@@ -15,3 +15,4 @@ zdvt kmqs ptwi juhm
 
 python manage.py makemigrations students
 python manage.py migrate
+python manage.py migrate
