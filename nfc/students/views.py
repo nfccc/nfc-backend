@@ -195,10 +195,9 @@ def handle_nfc_scan(request):
 
 
 
-def delete_student_by_name(request, student_name):
-    try:
-        student = Student.objects.get(student_name=student_name)  # Fetch student by name
-        student.delete()  # Delete the student
-        return JsonResponse({"message": f"Student '{student_name}' deleted successfully"}, status=200)
-    except Student.DoesNotExist:
-        return JsonResponse({"error": "Student not found"}, status=404)
+def delete_all_students(request):
+    """ Delete all students from the database """
+    if request.method == 'DELETE':
+        deleted_count, _ = Student.objects.all().delete()  # Delete all student records
+        return JsonResponse({"message": f"Deleted {deleted_count} students successfully"}, status=200)
+    return JsonResponse({"error": "Invalid request method"}, status=400)
