@@ -9,6 +9,17 @@ from django.conf import settings
 from datetime import datetime
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, Http404
+from .models import Student
+from django.shortcuts import render, redirect
+from django.http import JsonResponse, HttpResponse
+from .models import Student
+
+
+
+
+
 
 @api_view(['POST'])
 def add_student(request):
@@ -179,3 +190,15 @@ def handle_nfc_scan(request):
         return Response({"error": "Student not found"}, status=status.HTTP_404_NOT_FOUND)
     except Exception as e:
         return Response({"error": f"Failed to log attendance: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
+
+
+def delete_student_by_name(request, student_name):
+    try:
+        student = Student.objects.get(student_name=student_name)  # Fetch student by name
+        student.delete()  # Delete the student
+        return JsonResponse({"message": f"Student '{student_name}' deleted successfully"}, status=200)
+    except Student.DoesNotExist:
+        return JsonResponse({"error": "Student not found"}, status=404)
