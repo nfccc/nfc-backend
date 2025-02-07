@@ -15,7 +15,7 @@ from .models import Student
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
 from .models import Student
-
+from django.views.decorators.csrf import csrf_exempt
 
 
 
@@ -194,7 +194,7 @@ def handle_nfc_scan(request):
 
 
 
-
+@csrf_exempt  # ⬅️ Bypasses CSRF protection
 def delete_all_students(request):
     """ Delete all students from the database """
     if request.method == 'DELETE':
